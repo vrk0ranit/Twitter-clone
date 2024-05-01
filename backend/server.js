@@ -1,6 +1,7 @@
 import express from "express"
 import dotenv from 'dotenv'
 import authRoutes from './routes/auth.routes.js'
+import usersRoutes from './routes/user.route.js'
 import connectMongoDB from "./db/connectMongoDB.js"
 import cookieParser from "cookie-parser"
 
@@ -17,3 +18,4 @@ app.listen(process.env.PORT, () => {
 })
 
 app.use('/api/auth', authRoutes)
+app.use('/api/users', usersRoutes)
