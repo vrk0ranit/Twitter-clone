@@ -1,11 +1,14 @@
 import express from "express"
 import dotenv from 'dotenv'
-import authRoutes from './routes/auth.routes.js'
-import usersRoutes from './routes/user.route.js'
+
 import connectMongoDB from "./db/connectMongoDB.js"
 import cookieParser from "cookie-parser"
 
 import {v2 as cloudinary} from 'cloudinary'
+
+import authRoutes from './routes/auth.routes.js'
+import usersRoutes from './routes/user.route.js'
+import postRoutes from './routes/post.route'
 
 dotenv.config()
 
@@ -27,3 +30,4 @@ app.listen(process.env.PORT, () => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
+app.use('/api/post', postRoutes)
